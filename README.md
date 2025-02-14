@@ -65,16 +65,16 @@ Correlation heatmaps to understand relationships between variables.
 Selected the best-performing model based on real-world validation and interpretability.
 
 ## Results
-# 1. Random Forest Regressor
+### 1. Random Forest Regressor
 After training and testing the Random Forest Regressor, we obtained the following performance metrics:
 
 Mean Absolute Error (MAE): 106,864.39
 Mean Squared Error (MSE): 70,341,344,252.25
 R-Squared (R²): 0.7953
 These results indicate that the model captures some patterns in the data.
-![alt text](image-1.png)
+![alt text](image-2.png)
 
-# 2. Decision Tree Regressor
+### 2. Decision Tree Regressor
 We initially trained the Decision Tree Regressor, and the results were:
 
 Mean Absolute Error (MAE): 4,222.46
@@ -89,41 +89,42 @@ Mean Absolute Error (MAE): 145,417.03
 Mean Squared Error (MSE): 51,779,538,032.65
 R-Squared (R²): 0.8493
 The performance is now more balanced, showing improved generalization at the cost of a slight increase in error.
+![alt text](image-3.png)
 
 ## Challenges 
-# 1. Inconsistent JSON Data Structure
+### 1. Inconsistent JSON Data Structure
 The raw data was stored in JSON format, but its structure was inconsistent. Retrieving and converting it into a structured DataFrame required extensive iteration through nested files, making data extraction more complex than expected.
 
-# 2. Handling Missing and Irrelevant Data
+### 2. Handling Missing and Irrelevant Data
 The dataset contained many irrelevant features, which had to be identified and removed.
 A significant portion of the dataset had missing values. While some were filled using statistical methods (mean, median, mode, forward-fill, and backward-fill), others—especially location-related missing values—could not be imputed, making it difficult to utilize location as a key predictive feature.
 Cleaning and preprocessing the data consumed most of the project time.
-# 3. Small Dataset & Overfitting Issues
+### 3. Small Dataset & Overfitting Issues
 The dataset was relatively small, making it difficult for models to generalize well.
 Initial Decision Tree models overfitted, meaning they performed exceptionally well on training data but failed to generalize on test data. Hyperparameter tuning was necessary to address this issue.
 Deep Learning models were considered but performed poorly due to the limited dataset size, as deep learning typically requires large amounts of data to train effectively.
-# 4. Difficulty in Predicting House Prices
+### 4. Difficulty in Predicting House Prices
 House pricing is influenced by various external factors (e.g., market trends, economic conditions, neighborhood desirability) that were not captured in the dataset.
 The limited amount of training data and missing location data restricted the model's ability to make highly accurate predictions.
 
 ## Future Goals
-# 1. Collecting a Larger and More Diverse Dataset
+### 1. Collecting a Larger and More Diverse Dataset
 The accuracy of house price prediction models heavily depends on the amount and diversity of data.
 Future work should focus on acquiring a more extensive dataset that includes more properties across different locations and price ranges.
 Integrating real estate APIs (e.g., Zillow, Redfin) can help obtain real-time data for better predictions.
-# 2. Enhancing Feature Engineering
+### 2. Enhancing Feature Engineering
 Incorporate external factors such as:
 Economic indicators (interest rates, inflation)
 Nearby amenities (schools, hospitals, shopping centers)
 Crime rates and neighborhood safety
 Perform geospatial analysis using latitude and longitude to enhance location-based predictions.
-# 3. Handling Missing Data More Effectively
+### 3. Handling Missing Data More Effectively
 Instead of dropping missing values, advanced imputation techniques (e.g., KNN Imputer, regression-based imputation) can be used for better estimation.
 For missing location data, reverse geocoding techniques can be applied to approximate missing geographical details.
-# 4. Addressing Overfitting Issues
+### 4. Addressing Overfitting Issues
 Implement cross-validation techniques (such as k-fold cross-validation) to ensure the model generalizes well.
 Use ensemble methods like Gradient Boosting (XGBoost, LightGBM, CatBoost) to balance performance and prevent overfitting.
-# 5. Exploring More Advanced Models
+### 5. Exploring More Advanced Models
 Deep learning was initially considered but didn’t perform as needed due to the small dataset.
 Future improvements can include Neural Networks with Transfer Learning or Hybrid Models that combine deep learning with traditional methods.
 Bayesian optimization or AutoML frameworks can be explored to automate hyperparameter tuning for better performance.
